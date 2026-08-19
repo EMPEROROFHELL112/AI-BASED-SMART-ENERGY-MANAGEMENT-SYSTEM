@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Smart Energy Management System</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="header">
+        <div>
+            <h1>⚡ AI Smart Energy Management System</h1>
+            <p>Real-Time Energy Monitoring & Intelligent Control</p>
+        </div>
+
+        <div class="connection">
+            <span id="connectionDot"></span>
+            <span id="connectionText">Connecting...</span>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         Main Dashboard
+    ========================== -->
+    <main class="dashboard">
+
+        <!-- Overview Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <h3>Current</h3>
+                <p class="value">
+                    <span id="current">0.00</span> A
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Voltage</h3>
+                <p class="value">
+                    <span id="voltage">230.00</span> V
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Power</h3>
+                <p class="value">
+                    <span id="power">0.00</span> W
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Energy</h3>
+                <p class="value">
+                    <span id="energy">0.00</span> kWh
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             System Status
+        ========================== -->
+        <section class="status-section">
+
+            <div class="status-card">
+                <h2>System Status</h2>
+
+                <p>
+                    Relay:
+                    <strong id="relayStatus">OFF</strong>
+                </p>
+
+                <p>
+                    Energy Status:
+                    <strong id="energyStatus">Normal</strong>
+                </p>
+
+                <p>
+                    Last Update:
+                    <strong id="lastUpdate">--</strong>
+                </p>
+            </div>
+
+
+            <!-- AI Prediction -->
+            <div class="status-card">
+                <h2>🤖 AI Prediction</h2>
+
+                <p>
+                    Predicted Power:
+                    <strong>
+                        <span id="predictedPower">0.00</span> W
+                    </strong>
+                </p>
+
+                <p>
+                    Predicted Energy:
+                    <strong>
+                        <span id="predictedEnergy">0.00</span> kWh
+                    </strong>
+                </p>
+
+                <p>
+                    Recommendation:
+                </p>
+
+                <div class="recommendation" id="recommendation">
+                    Waiting for AI analysis...
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Power Chart
+        ========================== -->
+        <section class="chart-section">
+
+            <div class="chart-card">
+
+                <h2>📈 Power Consumption</h2>
+
+                <canvas id="powerChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Energy Chart
+        ========================== -->
+        <section class="chart-section">
+
+            <div class="chart-card">
+
+                <h2>⚡ Energy Consumption</h2>
+
+                <canvas id="energyChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Appliance Control
+        ========================== -->
+        <section class="control-section">
+
+            <div class="control-card">
+
+                <h2>Appliance Control</h2>
+
+                <button
+                    id="relayOn"
+                    onclick="controlRelay('ON')">
+                    Turn ON
+                </button>
+
+                <button
+                    id="relayOff"
+                    onclick="controlRelay('OFF')">
+                    Turn OFF
+                </button>
+
+                <p id="controlMessage">
+                    No manual control action.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Energy Saving Tips
+        ========================== -->
+        <section class="tips-section">
+
+            <div class="tips-card">
+
+                <h2>💡 Energy Saving Recommendation</h2>
+
+                <ul id="energyTips">
+
+                    <li>
+                        Switch off appliances when they are not required.
+                    </li>
+
+                    <li>
+                        Avoid operating high-power appliances simultaneously.
+                    </li>
+
+                    <li>
+                        Monitor unusual increases in energy consumption.
+                    </li>
+
+                    <li>
+                        Use the AI recommendations to optimize appliance usage.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer class="footer">
+
+        <p>
+            AI-Based Smart Energy Management System
+        </p>
+
+        <p>
+            ESP32 • IoT • AI • Energy Optimization
+        </p>
+
+    </footer>
+
+
+    <!-- Dashboard JavaScript -->
+    <script src="charts.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
